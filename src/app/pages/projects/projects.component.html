@@ -1,1 +1,23 @@
-<p>projects works!</p>
+<h1 class='title'>List of Projects</h1>
+
+<div class="list-container container">
+
+  <mat-list role="list">
+    <mat-list-item 
+      role="listitem"
+      *ngFor='let project of projects'>
+      {{ project.title }}
+      <a 
+        mat-flat-button 
+        color='accent'
+        class='project-btn'
+        [routerLink]="['/projects', project.path]">
+        View Project 
+        <mat-icon>
+          chevron_right
+        </mat-icon>
+      </a>
+    </mat-list-item>
+  </mat-list>
+
+</div>

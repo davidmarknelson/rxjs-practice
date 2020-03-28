@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProjectsComponent } from './projects.component';
+import { ProjectsModule } from './projects.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ProjectsComponent', () => {
   let component: ProjectsComponent;
@@ -8,9 +10,14 @@ describe('ProjectsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectsComponent ]
+      imports: [ProjectsModule, RouterTestingModule]
     })
-    .compileComponents();
+    .overrideComponent(ProjectsComponent, {
+      set: {
+        providers: [
+        ]
+      }
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -4,7 +4,8 @@ import { ProjectsComponent } from "./projects.component";
 
 
 const routes: Routes = [
-  { path: '', component: ProjectsComponent}
+  { path: '', component: ProjectsComponent},
+  { path: 'click-race', loadChildren: () => import('../click-race/click-race.module').then(m => m.ClickRaceModule) }
 ];
 
 @NgModule({
