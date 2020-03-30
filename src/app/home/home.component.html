@@ -3,15 +3,28 @@
     RxJS Practice
   </h1>
   <p class='center-text'>
-    View different project made with RxJS
+    View different projects made with RxJS
   </p>
   
-  <div class="center-btn">
-    <a 
-      routerLink='/projects' 
-      mat-flat-button 
-      color='accent'>
-      View Projects
-    </a>
+  <div class="list-container">
+
+    <mat-list role="list">
+      <mat-list-item 
+        role="listitem"
+        *ngFor='let project of projects'>
+        {{ project.title }}
+        <a 
+          mat-flat-button 
+          color='accent'
+          class='project-btn'
+          [routerLink]="[project.path]">
+          View Project 
+          <mat-icon>
+            chevron_right
+          </mat-icon>
+        </a>
+      </mat-list-item>
+    </mat-list>
+  
   </div>
 </div>

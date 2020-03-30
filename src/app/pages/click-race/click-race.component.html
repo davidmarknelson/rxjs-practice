@@ -3,16 +3,53 @@
 <div class="container">
   <p 
     class='center-text'>
-    See how many times you can click the button in 10 seconds.
+    See how many times you can click the button in 5 seconds.
     <br />
     The timer will start when you click the button.
   </p>
   
+
+  <!-- Click Counter -->
+  <!-- 
+    Initializes with transparent text.
+    Becomes visible when the user clicks the button.
+  -->
+  <p 
+    class='center-text top-spacing'>
+    Your current high score: {{ highScore }}
+  </p>
+
+  <p
+    class='center-text top-spacing'>
+    Time: 
+    <span class='timer'>
+      {{ time }}
+    </span>
+  </p>
+  
+  <p 
+    id='clickCounter' 
+    class='center-text top-spacing'>
+    Clicks: {{ clickCounter }}
+  </p>
+
   <div class="center-btn">
     <button 
       mat-raised-button
-      color='accent'>
-      Start!
+      color='accent'
+      [disabled]='hasGameFinished'
+      #button>
+      {{ hasGameStarted ? 'CLICK!' : 'Start!' }}
+    </button>
+  </div>
+
+  <div class="center-btn">
+    <button 
+      mat-raised-button
+      color='accent' 
+      (click)='resetGame()'
+      *ngIf='hasGameFinished'>
+      Reset Game
     </button>
   </div>
 </div>
